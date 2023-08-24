@@ -1,0 +1,16 @@
+E:\itlize\MyMusic\MyMusic.Data\bin\Debug\netcoreapp3.0\MyMusic.Data.deps.json
+E:\itlize\MyMusic\MyMusic.Data\bin\Debug\netcoreapp3.0\MyMusic.Data.runtimeconfig.json
+E:\itlize\MyMusic\MyMusic.Data\bin\Debug\netcoreapp3.0\MyMusic.Data.runtimeconfig.dev.json
+E:\itlize\MyMusic\MyMusic.Data\bin\Debug\netcoreapp3.0\MyMusic.Data.dll
+E:\itlize\MyMusic\MyMusic.Data\bin\Debug\netcoreapp3.0\MyMusic.Data.pdb
+E:\itlize\MyMusic\MyMusic.Data\bin\Debug\netcoreapp3.0\MyMusic.Core.dll
+E:\itlize\MyMusic\MyMusic.Data\bin\Debug\netcoreapp3.0\MyMusic.Core.pdb
+E:\itlize\MyMusic\MyMusic.Data\obj\Debug\netcoreapp3.0\MyMusic.Data.csproj.AssemblyReference.cache
+E:\itlize\MyMusic\MyMusic.Data\obj\Debug\netcoreapp3.0\MyMusic.Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\itlize\MyMusic\MyMusic.Data\obj\Debug\netcoreapp3.0\MyMusic.Data.AssemblyInfoInputs.cache
+E:\itlize\MyMusic\MyMusic.Data\obj\Debug\netcoreapp3.0\MyMusic.Data.AssemblyInfo.cs
+E:\itlize\MyMusic\MyMusic.Data\obj\Debug\netcoreapp3.0\MyMusic.Data.csproj.CoreCompileInputs.cache
+E:\itlize\MyMusic\MyMusic.Data\obj\Debug\netcoreapp3.0\MyMusic.Data.csproj.CopyComplete
+E:\itlize\MyMusic\MyMusic.Data\obj\Debug\netcoreapp3.0\MyMusic.Data.dll
+E:\itlize\MyMusic\MyMusic.Data\obj\Debug\netcoreapp3.0\MyMusic.Data.pdb
+E:\itlize\MyMusic\MyMusic.Data\obj\Debug\netcoreapp3.0\MyMusic.Data.genruntimeconfig.cache
