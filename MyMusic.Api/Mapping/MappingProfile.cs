@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using MyMusic.Api.Resources;
+using MyMusic.Core.Auth;
 using MyMusic.Core.Models;
 
 namespace MyMusic.Api.Mapping
@@ -21,6 +22,7 @@ namespace MyMusic.Api.Mapping
             CreateMap<ArtistResource, Artist>();
             CreateMap<SaveMusicResource, Music>();
             CreateMap<SaveArtistResource, Artist>();
+            CreateMap<UserSignUpResource, User>().ForMember(u => u.UserName, opt => opt.MapFrom(ur => ur.Email));
         }
     }
 }

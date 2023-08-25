@@ -17,6 +17,11 @@ using MyMusic.Core.Services;
 using MyMusic.Services;
 using Swashbuckle.AspNetCore.Swagger;
 using AutoMapper;
+using MyMusic.Core.Auth;
+using Microsoft.AspNetCore.Identity;
+using MyMusic.Api.Settings;
+using MyMusic.Api.Extensions;
+using Microsoft.OpenApi.Models;
 
 namespace MyMusic.Api
 {
@@ -47,10 +52,45 @@ namespace MyMusic.Api
             // Add Swagger.
             services.AddSwaggerGen(options =>
             {
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT containing userid claim",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                });
+                var security =
+                    new OpenApiSecurityRequirement
+                    {
+                        {
+                            new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Id = "Bearer",
+                                    Type = ReferenceType.SecurityScheme
+                                },
+                                UnresolvedReference = true
+                            },
+                            new List<string>()
+                        }
+                    };
+                options.AddSecurityRequirement(security);
                 options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My Music API", Version = "v1" });
             });
             // Add AutoMapper.
             services.AddAutoMapper(typeof(Startup));
+            // Add Identity.
+            services.AddIdentity<User, Role>(
+            ).AddEntityFrameworkStores<MyMusicDbContext>()  // AddEntityFrameworkStores tells that our MyMusicDbContext is going to be where our Identity’s information is stored
+            .AddDefaultTokenProviders(); // AddDefaultTokenProviders adds token provider to generate tokens for password reset, change email etc.
+
+            // Add JWT Authentication.
+            services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
+            var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
+            services.AddAuth(jwtSettings);
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,8 +104,9 @@ namespace MyMusic.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseAuth(); // Add JWT Authentication.
 
             app.UseEndpoints(endpoints =>
             {
